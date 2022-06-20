@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  const random = new Random();
+  const random = new Random(); // new better random
+  console.log(random);
 
   let five_star_gem_count = 0;
 
@@ -134,7 +135,7 @@
         'gem/howlers_call',
         'gem/zwensons_haunting',
         'gem/seeping_bile',
-        'gem/blessing_of_the_' + 'worthy',
+        'gem/blessing_of_the_worthy',
         'gem/caarsens_invigoration',
         'gem/defiant_soul',
         'gem/freedom_and_devotion',
@@ -224,8 +225,7 @@
   };
 
   const randomIndex = (distribution) => {
-    const index = Math.floor(distribution.length * Math.random()); // random index
-    return distribution[index];
+    return random.pick(distribution);
   };
 
   function determineGemRank() {
@@ -251,13 +251,13 @@
     switch (gem_types[index]) {
       case 1:
         return {
-          name: one_star_gems[Math.floor(Math.random() * one_star_gems.length)],
+          name: random.pick(one_star_gems),
           rank: 1,
           fiveStarGem: false,
         };
       case 2:
         return {
-          name: two_star_gems[Math.floor(Math.random() * two_star_gems.length)],
+          name: random.pick(two_star_gems),
           rank: 2,
           fiveStarGem: false,
         };
@@ -270,9 +270,7 @@
         }
 
         return {
-          name: five_star_gems[
-            Math.floor(Math.random() * five_star_gems.length)
-          ],
+          name: random.pick(five_star_gems),
           rank: gemRank,
           fiveStarGem: true,
         };
