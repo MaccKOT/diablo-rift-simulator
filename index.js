@@ -2,7 +2,6 @@
   'use strict';
 
   const random = new Random(); // new better random
-  console.log(random);
 
   let five_star_gem_count = 0;
 
